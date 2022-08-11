@@ -1,6 +1,7 @@
 $color1: #c49c52;
 $color2: #0c041c;
 $font: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+$cliente: persona;
 
 *{padding: 0;
 margin: 0;
@@ -11,6 +12,10 @@ margin: 0;
 
     .logo p{
         color: white;
+}
+.logo img{
+    height: 150px;
+
 }
 }
 #navbarScroll ul li:hover{
@@ -41,13 +46,6 @@ margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.contador {
-    width: 100%;
-    height: 600px;
-    background-image: url(Imagenes/contador.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-}
 footer div{
     background-color: #0c041c;
     height: 120px;
@@ -69,6 +67,9 @@ footer a img {
 }
 }
 
+#Servicios{
+    height: 60vh;
+}
 input{
     transition: all 1s;
 }
@@ -79,11 +80,64 @@ input:focus, textarea:focus, select:focus{
     box-shadow: none !important;
 }
 
-.btn-primary{
-    background-color: #c49c52;
-    border: 1px solid #c49c52;
-
+.btn-primary {
+    @if $cliente == persona {
+        background-color: #c49c52;
+        border: 1px solid #c49c52;
+    }
+    @else {
+        background-color: black;
+        border: 1px solid $color1;
+    }
+    }
     .btn-primary:hover{
         background-color: #0c041c;
 }
+
+.carrusel {
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+.carrusel ul{
+    display: flex;
+    animation: cambio 20s infinite alternate linear;
+    width: 400%;
+}
+.carrusel li{
+    width: 100%;
+    list-style: none;
+}
+.carrusel img{
+    width: 100%;
+    height:fit-content;
+
+}
+    
+@keyframes cambio{
+    0%{margin-left: 0;}
+    20%{margin-left: 0;}
+
+    25%{margin-left: -100%;}
+    45%{margin-left: -100%;}
+
+    50%{margin-left: -200%;}
+    70%{margin-left: -200%;}
+
+    75%{margin-left: -300%;}
+    100%{margin-left: -300%;}
+}
+
+.carrusel h1{
+    position: absolute;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-size: 51px;
+    margin-top: 35vh;
+    background-color: rgba($color: $color2, $alpha: 0.7);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
